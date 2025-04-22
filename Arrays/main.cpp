@@ -2,60 +2,95 @@
 using namespace std;
 
 
-//#define Mas_1
-//#define Mas_2
-//#define Mas_3
-//#define Mas_4
+
 
 void main()
 {
 	setlocale(LC_ALL, "");
 
 	const int n = 5;
-	int arr[n] = { 23, 15, 6, 31, 9 };
+	int arr[n] = {3, 5, 8};
 
+	  cout << "Введите значение массива: ";
+   for (int i = 0; i < n; i++)
+  
+   {
+	   cin >> arr[i];
+   }
 
-#ifdef Mas_1
+   for (int i = 0; i < n; i++)
+   {
+	   cout << arr[i] << "\t";
+   }
+   cout << endl;
+   	
 
-	
-	for (int i = 0; i < n; i++)
-	
-	{
-		cout << arr[i] << "\t";
-		
-#endif Mas_1
+	   int minRand, maxRand;
+	   do
+	   {
+		   cout << "Введите минимальное случайное число: "; cin >> minRand;
+		   cout << "Введите максимальное случайное число: "; cin >> maxRand;
+		   if (minRand == maxRand)cout << "Минимальное должно быть меньше максимального: " << endl;
+		   if (minRand == maxRand)cout << "Числа должны быть разные: " << endl;
+	   } while (minRand >= maxRand);
+	   if (maxRand < minRand);
+	   {
+		   int buffer = minRand;
+		   minRand = maxRand;
+		   maxRand = buffer;
+	   }
+	   
 
-#ifdef Mas_2
-
-	for (int i = 0; i < n - 4; i++)
-	{ 
-	cout << (arr[0] + arr[1] + arr[2] + arr[3] + arr[4]) / 2 << endl;
-	}
-			
-	
-#endif  Mas_2
-
-#ifdef Mas_3
+     for (int i = 0; i < n; i++)
+	 {
+		 arr[i] = rand() % (maxRand - minRand) + minRand;
+		// arr[i] = rand() % (100 - 50) + 50;
+	 }
 
 	for (int i = n - 1; i >= 0; i--)
 	{
 		cout << arr[i] << "\t";
-	}
-#endif  Mas_3
-
-#ifdef Mas_4
-	int min = arr[2];
-	int max = arr[3];
-	for (int i = 0; i < 1; i++)cout << min << endl;
-	for (int i = 0; i < 1; i++)cout << max << endl;
-	
-	/*for (int i = 0; i < n; i++)
-	{
-	if (arr[i] < 7)cout << arr[i] << endl;
-	if (arr[i] > 23)cout << arr[i] << endl;
     }
-	*/
-#endif  Mas_4
+	cout << endl;
 
+	int s = 0;
+	for (int i = 0; i < n; i++)
+	
+	{
+		s += arr[i];
+	}
+	cout << "Сумма элементов массива: " << s << endl;
+	cout << "Среднее-арифметическое элементов массива: " << (double)s / n << endl;
 
+	int min, max;
+	min = max = arr[0];
+	for (int i = 0; i < n; i++)
+	
+	{
+		if (arr[i] < min)min = arr[i];
+		if (arr[i] > max)max = arr[i];
+	}
+
+	cout << "Минимальное значение в массиве: " << min << endl;
+	cout << "Максимальное значение в массиве: " << max << endl;
+	
+
+	for (int i = 0; i < n; i++) 
+	 	
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (arr[j] < arr[i]);
+			{
+				int buffer = arr[i];
+				arr[i] = arr[j];
+				arr[j] = buffer;
+
+			}
+	    }
+	}
+		for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << "\t";
+	}
 }
